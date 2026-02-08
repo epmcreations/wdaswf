@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audio Mixer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="action-bar">
+        <div class="icon-btn" onclick="generateRandom()" title="Generate">
+          <img src="genrat.png" alt="Generate" />
+        </div>
+
+        <div class="nav-center">
+          <div class="nav-btn" onclick="showTab('engine')">
+            <img src="creat.png" /> Create
+          </div>
+          <div class="nav-btn" onclick="showTab('about')">
+            <img src="abou.png" /> About
+          </div>
+        </div>
+
+        <div class="icon-group">
+          <div class="icon-btn" onclick="playCurrent()" title="Play">
+            <img src="pla.png" alt="Play" />
+          </div>
+          <div class="icon-btn" onclick="exportSound()" title="Export">
+            <img src="expor.png" alt="Export" />
+          </div>
+          <div class="icon-btn" onclick="saveCurrent()" title="Save">
+            <img src="sav.png" alt="Save" />
+          </div>
+        </div>
+      </div>
+
+      <div class="data-panel">
+        <div class="panel-header">SEED</div>
+        <div class="panel-content">
+          <textarea
+            id="data-input"
+            placeholder="Paste seed here..."
+            oninput="importData(this.value)"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="main-panel">
+        <div id="about-overlay">
+          <div class="about-title">Welcome to TinyFX</div>
+          <div class="about-text">
+            Hope you're enjoying
+            <u style="color: var(--btn-red);">TinyFX</u> so far! If you like what I've
+            built, feel free to share it with other creators. Every sound you
+            make helps keep this project alive!
+          </div>
+          <div class="about-title" style="font-size: 1rem;">Overview</div>
+          <div class="about-text">
+            * <u>Create:</u> A simple tool for making your own sound effects.
+            Just move the sliders and listen to the sound change!<br />
+            * <u>Seeds:</u> You can copy a seed and paste it into any other TinyFX instance to load & edit that effect there!<br />
+            * <u>Management:</u> Double-click saved items to rename or delete.
+          </div>
+          <div class="about-title" style="font-size: 1rem;">
+            For your information..
+          </div>
+          <div class="about-text">
+            Feel free to use any sounds you make here however you like. games,
+            music, or videos. No credit needed for a second long audio effect,
+            but sharing the tool with others is always appreciated!
+          </div>
+          <button
+            class="red-btn"
+            style="width: 100%;"
+            onclick="showTab('engine')"
+          >
+            Okay!
+          </button>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 10px; color: #5865f2; font-size: 0.9rem;">
+            <img src="qose.png" style="height: 14px; width: auto;" />
+            <span>q9se</span>
+          </div>
+        </div>
+
+        <div class="viz-container">
+          <canvas id="oscilloscope"></canvas>
+        </div>
+        <div id="controls"></div>
+      </div>
+
+      <div class="sidebar">
+        <div class="panel-header">SAVED SFX</div>
+        <div id="saved-list" class="panel-content"></div>
+      </div>
+
+      <div id="mgmt-panel">
+        <div style="font-size: 1.2rem;">EDIT SFX</div>
+        <input
+          type="text"
+          id="rename-input"
+          class="mgmt-input"
+          placeholder="Rename..."
+        />
+        <button
+          class="red-btn"
+          style="font-size: 0.9rem;"
+          onclick="applyRename()"
+        >
+          Apply
+        </button>
+        <button
+          class="red-btn"
+          style="font-size: 0.9rem; background: #1e1e1e;"
+          onclick="deleteSfx()"
+        >
+          Delete
+        </button>
+        <div style="flex-grow: 1;"></div>
+        <button
+          class="red-btn"
+          style="font-size: 0.9rem;"
+          onclick="closeMgmt()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
