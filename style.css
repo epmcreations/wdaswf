@@ -28,6 +28,8 @@ body {
     gap: 12px;
     position: relative;
     box-sizing: border-box;
+    transform: scale(1.5); /* 1.5 makes it 50% bigger. Use 2 for double size. */
+    transform-origin: center;
 }
 
 .action-bar {
@@ -226,16 +228,4 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 14px
     scrollbar-width: none;
     -ms-overflow-style: none;
     overflow-y: auto;
-
-}
-
-/* Hides scrollbar for the about overlay specifically */
-#about-overlay::-webkit-scrollbar {
-    display: none;
-}
-
-#about-overlay {
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE and Edge */
-    overflow-y: auto;            /* Keeps scrolling functional */
 }
