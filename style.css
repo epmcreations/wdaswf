@@ -1,7 +1,7 @@
 :root {
     --primary-black: #1e1e1e;
     --secondary-black: #323234;
-    --btn-red: #2596be;
+    --btn-red: #e03d52;
     --text-white: #ffffff;
 }
 
@@ -128,7 +128,7 @@ body {
     height: 100%;
     background: transparent;
     border: none;
-    color: #323234;
+    color: #aaaaaa;
     font-family: 'Jersey 10';
     font-size: 0.75rem;
     resize: none;
@@ -229,4 +229,5 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 14px
     -ms-overflow-style: none;
     overflow-y: auto;
 }
+
 
